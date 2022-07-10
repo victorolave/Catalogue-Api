@@ -2,31 +2,65 @@
 
 namespace App\Repositories\Products;
 
+use App\Models\Size;
+use Illuminate\Database\Eloquent\Collection;
+
 class SizeRepository implements \App\Repositories\Interfaces\Products\SizeRepositoryInterface
 {
+    protected Size $size;
 
-    public function all()
+    public function __construct(Size $size)
     {
-        // TODO: Implement all() method.
+        $this->size = $size;
     }
 
-    public function create(array $data)
+    /**
+     * @desc Method to return all sizes.
+     * @return Collection
+     */
+    public function all(): Collection
     {
-        // TODO: Implement create() method.
+        return $this->size->all();
     }
 
-    public function update(array $data, $id)
+    /**
+     * @desc Method to create new size.
+     * @param array $data
+     * @return mixed
+     */
+    public function create(array $data): mixed
     {
-        // TODO: Implement update() method.
+        return $this->size->create($data);
     }
 
-    public function delete($id)
+    /**
+     * @desc Method to update a size.
+     * @param array $data
+     * @param $id
+     * @return mixed
+     */
+    public function update(array $data, $id): mixed
     {
-        // TODO: Implement delete() method.
+        return $this->size->find($id)->update($data);
     }
 
-    public function find($id)
+    /**
+     * @desc Method to delete a size.
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id): mixed
     {
-        // TODO: Implement find() method.
+        return $this->size->find($id)->delete();
+    }
+
+    /**
+     * @desc Method to return a size.
+     * @param $id
+     * @return mixed
+     */
+    public function find($id): mixed
+    {
+        return $this->size->find($id);
     }
 }
