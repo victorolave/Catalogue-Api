@@ -21,3 +21,11 @@ Route::group(['prefix' => 'size'], function () {
    Route::put('{id}', [\App\Http\Controllers\SizeController::class, 'update']);
    Route::delete('{id}', [\App\Http\Controllers\SizeController::class, 'delete']);
 });
+
+Route::group(['prefix' => 'brand'], function () {
+    Route::get('', [\App\Http\Controllers\BrandController::class, 'all']);
+    Route::get('{id}', [\App\Http\Controllers\BrandController::class, 'get']);
+    Route::post('', [\App\Http\Controllers\BrandController::class, 'create']);
+    Route::put('{id}', [\App\Http\Controllers\BrandController::class, 'update']);
+    Route::delete('{id}', [\App\Http\Controllers\BrandController::class, 'delete']);
+});
