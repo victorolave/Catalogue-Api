@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BrandRequest;
 use App\Repositories\Products\BrandRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -36,21 +37,21 @@ class BrandController extends Controller
 
     /**
      * @desc Method to create a new record.
-     * @param Request $request
+     * @param BrandRequest $request
      * @return mixed
      */
-    public function create(Request $request): mixed
+    public function create(BrandRequest $request): mixed
     {
         return $this->brandRepository->create($request->all());
     }
 
     /**
      * @desc Method to update a record.
-     * @param Request $request
+     * @param BrandRequest $request
      * @param $id
      * @return mixed
      */
-    public function update(Request $request, $id): mixed
+    public function update(BrandRequest $request, $id): mixed
     {
         return $this->brandRepository->update($request->all(), $id);
     }

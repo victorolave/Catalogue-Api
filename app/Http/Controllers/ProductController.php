@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Repositories\Products\ProductRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -36,21 +37,21 @@ class ProductController extends Controller
 
     /**
      * @desc Method to create a new record.
-     * @param Request $request
+     * @param ProductRequest $request
      * @return mixed
      */
-    public function create(Request $request): mixed
+    public function create(ProductRequest $request): mixed
     {
         return $this->productRepository->create($request->all());
     }
 
     /**
      * @desc Method to update a record.
-     * @param Request $request
+     * @param ProductRequest $request
      * @param $id
      * @return mixed
      */
-    public function update(Request $request, $id): mixed
+    public function update(ProductRequest $request, $id): mixed
     {
         return $this->productRepository->update($request->all(), $id);
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SizeRequest;
+use App\Models\Size;
 use App\Repositories\Products\SizeRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -36,21 +38,21 @@ class SizeController extends Controller
 
     /**
      * @desc Method to create a new record.
-     * @param Request $request
+     * @param SizeRequest $request
      * @return mixed
      */
-    public function create(Request $request):mixed
+    public function create(SizeRequest $request):mixed
     {
         return $this->sizeRepository->create($request->all());
     }
 
     /**
      * @desc Method to update a record.
-     * @param Request $request
+     * @param SizeRequest $request
      * @param $id
      * @return mixed
      */
-    public function update(Request $request, $id):mixed
+    public function update(SizeRequest $request, $id):mixed
     {
         return $this->sizeRepository->update($request->all(), $id);
     }
