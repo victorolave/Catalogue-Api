@@ -29,3 +29,11 @@ Route::group(['prefix' => 'brand'], function () {
     Route::put('{id}', [\App\Http\Controllers\BrandController::class, 'update']);
     Route::delete('{id}', [\App\Http\Controllers\BrandController::class, 'delete']);
 });
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('', [\App\Http\Controllers\ProductController::class, 'all']);
+    Route::get('{id}', [\App\Http\Controllers\ProductController::class, 'get']);
+    Route::post('', [\App\Http\Controllers\ProductController::class, 'create']);
+    Route::put('{id}', [\App\Http\Controllers\ProductController::class, 'update']);
+    Route::delete('{id}', [\App\Http\Controllers\ProductController::class, 'delete']);
+});
