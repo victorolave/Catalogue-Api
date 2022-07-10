@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'size'], function () {
+   Route::get('', [\App\Http\Controllers\SizeController::class, 'all']);
+   Route::get('{id}', [\App\Http\Controllers\SizeController::class, 'get']);
+   Route::post('', [\App\Http\Controllers\SizeController::class, 'create']);
+   Route::put('{id}', [\App\Http\Controllers\SizeController::class, 'update']);
+   Route::delete('{id}', [\App\Http\Controllers\SizeController::class, 'delete']);
 });
