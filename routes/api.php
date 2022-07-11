@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'size'], function () {
+   Route::get('', [\App\Http\Controllers\SizeController::class, 'all']);
+   Route::get('{id}', [\App\Http\Controllers\SizeController::class, 'get']);
+   Route::post('', [\App\Http\Controllers\SizeController::class, 'create']);
+   Route::put('{id}', [\App\Http\Controllers\SizeController::class, 'update']);
+   Route::delete('{id}', [\App\Http\Controllers\SizeController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'brand'], function () {
+    Route::get('', [\App\Http\Controllers\BrandController::class, 'all']);
+    Route::get('{id}', [\App\Http\Controllers\BrandController::class, 'get']);
+    Route::post('', [\App\Http\Controllers\BrandController::class, 'create']);
+    Route::put('{id}', [\App\Http\Controllers\BrandController::class, 'update']);
+    Route::delete('{id}', [\App\Http\Controllers\BrandController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('', [\App\Http\Controllers\ProductController::class, 'all']);
+    Route::get('{id}', [\App\Http\Controllers\ProductController::class, 'get']);
+    Route::post('', [\App\Http\Controllers\ProductController::class, 'create']);
+    Route::put('{id}', [\App\Http\Controllers\ProductController::class, 'update']);
+    Route::delete('{id}', [\App\Http\Controllers\ProductController::class, 'delete']);
 });
