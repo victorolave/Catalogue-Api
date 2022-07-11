@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('size_id')->references('id')->on('sizes');
+            $table->foreignId('size_id')->references('id')->on('sizes')->cascadeOnDelete();
             $table->text('remarks')->nullable();
-            $table->foreignId('brand_id')->references('id')->on('brands');
+            $table->foreignId('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->integer('stock')->default(0);
             $table->date('shipment_date');
             $table->timestamps();
